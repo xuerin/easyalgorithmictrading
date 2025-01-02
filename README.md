@@ -5,7 +5,7 @@ Python code for implementing statistical tests that identify price series that p
 ---
 
 ## [Augmented Dickey-Fuller (ADF) Test](ADF.py)
-- **Purpose**: Tests for stationarity in a time series using a linear lag model of order $p$, where the change in the value of the time series is proportional to:
+**Purpose**: Tests for stationarity in a time series using a linear lag model of order $p$, where the change in the value of the time series is proportional to:
   - A constant.
   - A temporal trend.
   - Previous $p$-values.
@@ -22,13 +22,13 @@ $$
 - $\delta_1, \delta_2, \dots, \delta_{p-1}$: Coefficients for the lagged differences of the series.
 - $\epsilon_t$: The error term.
 
-- **Null Hypothesis ($H_0$)**: The time series follows a random walk (non-stationary), which implies $\gamma = 0$.
-- **Objective**: Reject the null hypothesis to conclude that the time series is stationary/mean-reverting and does not follow a random walk.
+**Null Hypothesis ($H_0$)**: The time series follows a random walk (non-stationary), which implies $\gamma = 0$.
+**Objective**: Reject the null hypothesis to conclude that the time series is stationary/mean-reverting and does not follow a random walk.
 
 ---
 
 ## [Hurst Exponent](Hurst.py)
-- **Purpose**: Compares the variance of a log price series with the rate of diffusion of GBM using the Hurst exponent.
+**Purpose**: Compares the variance of a log price series with the rate of diffusion of GBM using the Hurst exponent.
 
 $$
 \text{Var}(\tau) = \langle | \log(t+\tau) - \log(t) |^2 \rangle
@@ -48,10 +48,10 @@ $$
 ---
 
 ## [Cointegrated Augmented Dickey-Fuller Test (CADF)](CADF.py)
-- **Purpose**: Tests for stationarity in a portfolio of equities.
-- **Process**:
-  1. Compute the hedge ratio by performing a linear regression between the two time series.
-  2. Test for stationarity of the residuals (linear combination) using the ADF test.
+**Purpose**: Tests for stationarity in a portfolio of equities.
+**Process**:
+1. Compute the hedge ratio by performing a linear regression between the two time series.
+2. Test for stationarity of the residuals (linear combination) using the ADF test.
 
 ---
 
