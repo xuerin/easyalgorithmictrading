@@ -15,7 +15,6 @@ $$
 \Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \cdots + \delta_{p-1} \Delta y_{t-p+1} + \epsilon_t
 $$
 
-### **Explanation of Terms**:
 - $\Delta y_t$: The first difference of the series, $\Delta y_t = y(t) - y(t-1)$.
 - $\alpha$: A constant.
 - $\beta$: The coefficient of a temporal trend.
