@@ -11,10 +11,10 @@ $$
 \Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \cdots + \delta_{p-1} \Delta y_{t-p+1} + \epsilon_t
 $$
     - $\beta$: the coefficient of a temporal trend
-    - $\delta y_t = y(t) − y(t − 1)$
+    - $\Delta y_t = y(t) − y(t − 1)$
     - $\alpha$ is a constant
 - **Null Hypothesis**: The model follows random walk/GBM behavior because $\gamma = 0$.
-- **Objective**: We aim to reject the null hypothesis to conclude that the time series is stationary.
+- **Objective**: We aim to reject the null hypothesis to conclude that the time series is stationary and not a random walk.
 
 ---
 
