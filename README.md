@@ -5,16 +5,26 @@ Python code for implementing statistical tests that identify price series that p
 ---
 
 ## [Augmented Dickey-Fuller (ADF) Test](ADF.py)
-- **Purpose**: Uses the linear lag model of order $p$ to test for stationarity in a time series, where a change in value of the time series is propertional to a constant, time, previous $p$-values, and an error term. 
+- **Purpose**: Tests for stationarity in a time series using a linear lag model of order $p$, where the change in the value of the time series is proportional to:
+  - A constant.
+  - A temporal trend.
+  - Previous $p$-values.
+  - An error term.
 
 $$
 \Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \cdots + \delta_{p-1} \Delta y_{t-p+1} + \epsilon_t
 $$
-    - $\beta$: the coefficient of a temporal trend
-    - $\Delta y_t = y(t) − y(t − 1)$
-    - $\alpha$ is a constant
-- **Null Hypothesis**: The model follows random walk/GBM behavior because $\gamma = 0$.
-- **Objective**: We aim to reject the null hypothesis to conclude that the time series is stationary and not a random walk.
+
+### **Explanation of Terms**:
+- $\Delta y_t$: The first difference of the series, $\Delta y_t = y(t) - y(t-1)$.
+- $\alpha$: A constant.
+- $\beta$: The coefficient of a temporal trend.
+- $\gamma$: The coefficient of $y_{t-1}$, used to test for stationarity.
+- $\delta_1, \delta_2, \dots, \delta_{p-1}$: Coefficients for the lagged differences of the series.
+- $\epsilon_t$: The error term.
+
+- **Null Hypothesis ($H_0$)**: The time series follows a random walk (non-stationary), which implies $\gamma = 0$.
+- **Objective**: Reject the null hypothesis to conclude that the time series is stationary/mean-reverting and does not follow a random walk.
 
 ---
 
@@ -29,12 +39,12 @@ $$
 \langle | \log(t+\tau) - \log(t) |^2 \rangle \sim \tau^{2H}
 $$
 
-- **Interpretation**:
-  - If $H = 0.5$: GBM (Random Walk).
-  - If $H < 0.5$: Mean-reverting behavior.
-  - If $H > 0.5$: Trending behavior.
-  - $H$ near $0$: Highly mean-reverting.
-  - $H$ near $1$: Strongly trending.
+### **Interpretation**:
+- If $H = 0.5$: GBM (Random Walk).
+- If $H < 0.5$: Mean-reverting behavior.
+- If $H > 0.5$: Trending behavior.
+- $H$ near $0$: Highly mean-reverting.
+- $H$ near $1$: Strongly trending.
 
 ---
 
@@ -42,7 +52,7 @@ $$
 - **Purpose**: Tests for stationarity in a portfolio of equities.
 - **Process**:
   1. Compute the hedge ratio by performing a linear regression between the two time series.
-  2. Test for stationarity of the linear combination using ADF.
+  2. Test for stationarity of the residuals (linear combination) using the ADF test.
 
 ---
 
