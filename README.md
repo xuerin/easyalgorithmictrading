@@ -22,6 +22,7 @@ tests for stationarity under the linear combination.
 ## Definitions
 **Random Walk**\
 A time series sequence of steps in which each step is determined randomly. Most equities behave this way.
+$$X_t = X_{t-1}+ {\epsilon}_t$$
 
 **Mean Reverting**\
 Follows the Ornstein-Uhlenbeck process. This is to say the change of the price series in the next continuous time
