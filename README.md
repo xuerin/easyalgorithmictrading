@@ -1,49 +1,86 @@
 # Time Series Analysis
-Python code for implementing statistical tests that identify price series that possess trending, mean-reverting or 
-geometric brownian motion (GBM)/random walk behavior.
+
+Python code for implementing statistical tests that identify price series that possess trending, mean-reverting, or geometric Brownian motion (GBM)/random walk behavior.
+
+---
 
 ## [Augmented Dickey-Fuller (ADF) Test](ADF.py)
-Uses the linear lag model of order p, a model for a time series.
-Null hypothesis: The model follows random walk/GBM behavior because the gamma coefficient is 0.
-We want to reject null.
+- **Purpose**: Uses the linear lag model of order \( p \) to test for stationarity in a time series.
+- **Null Hypothesis**: The model follows random walk/GBM behavior because the gamma coefficient is \( 0 \).
+- **Objective**: We aim to reject the null hypothesis to conclude that the time series is stationary.
+
+---
 
 ## [Hurst Exponent](Hurst.py)
-Compares the variance of a log price series with the rate of diffusion of the GBM with Hurst Exponent.
-$$Var(\tau) = <|log(t+\tau) - log(t)|^2>$$\
-$$<|log(t+\tau) - log(t)|^2> \sim {\tau}^{2H}$$\
-If $H = 0.5$, GMB\
-If $H < 0.5$, mean-reverting\
-If $H > 0.5$, trending\
-H near 0, highly mean reverting\
-H near 1, strongly trending
+- **Purpose**: Compares the variance of a log price series with the rate of diffusion of GBM using the Hurst exponent.
+
+\[
+\text{Var}(\tau) = \langle | \log(t+\tau) - \log(t) |^2 \rangle
+\]
+
+\[
+\langle | \log(t+\tau) - \log(t) |^2 \rangle \sim \tau^{2H}
+\]
+
+- **Interpretation**:
+  - If \( H = 0.5 \): GBM (Random Walk).
+  - If \( H < 0.5 \): Mean-reverting behavior.
+  - If \( H > 0.5 \): Trending behavior.
+  - \( H \) near \( 0 \): Highly mean-reverting.
+  - \( H \) near \( 1 \): Strongly trending.
+
+---
 
 ## [Cointegrated Augmented Dickey-Fuller Test (CADF)](CADF.py)
-For a portfolio of equities. Gets the hedge ratio by performing a linear regression against the two time series and then
-tests for stationarity under the linear combination.
+- **Purpose**: Tests for stationarity in a portfolio of equities.
+- **Process**:
+  1. Compute the hedge ratio by performing a linear regression between the two time series.
+  2. Test for stationarity of the linear combination using ADF.
+
+---
 
 ## Definitions
-**Random Walk**\
-A time series sequence of steps in which each step is determined randomly. Most equities behave this way.
-$$X_t = X_{t-1}+ \epsilon _t$$\
-$X_{t-1}$ is the position at previous time step\
-${\epsilon}_t$ is a random step at $t$ from a probability distribution.
 
-**Mean Reverting**\
-Follows the Ornstein-Uhlenbeck process. This is to say the change of the price series in the next continuous time
-period is proportional to (mean of price - current price + Gaussian noise).
-$$dx_t = \theta \(\mu - x_t\)dt + \delta dW_t$$\
-$\mu$ is the mean\
-$\delta$ is the variance\
-$\theta$ is the rate of reversion to mean\
-$W_t$ is the Wiener Process/Brownian Motion
+### **Random Walk**
+A time series sequence of steps where each step is determined randomly. Most equities behave this way.
 
-**(Strongly) Stationary**\
-The joint probability distribution is invariant. Mean and standard deviation do not change. They diffuse from their 
-initial value at a rate slower than GBM/RW.
+\[
+X_t = X_{t-1} + \epsilon_t
+\]
 
-**Cointegration**\
-Picking sets of price series that are stationary and therefore can use mean-reverting strategies. The 2 equities will
-have a linear relationship.
-$$ y(t) = \Beta x(t) + {\epsilon}(t)$$\
-$y(t), x(t)$ is the price of equity y, x respectively on day $t$\
-${\epsilon}(t)$ is the residual. 
+- \( X_{t-1} \): Position at the previous time step.
+- \( \epsilon_t \): Random step at \( t \), drawn from a probability distribution.
+
+---
+
+### **Mean-Reverting**
+A mean-reverting series follows the Ornstein-Uhlenbeck process, where the change in the price series in the next continuous time period is proportional to:
+
+\[
+dx_t = \theta (\mu - x_t) dt + \delta dW_t
+\]
+
+- \( \mu \): Mean value.
+- \( \delta \): Variance.
+- \( \theta \): Rate of reversion to the mean.
+- \( W_t \): Wiener Process/Brownian Motion.
+
+---
+
+### **(Strongly) Stationary**
+A time series is stationary if its joint probability distribution is invariant over time. This means:
+- The mean and standard deviation remain constant.
+- The rate of diffusion is slower than GBM/random walk.
+
+---
+
+### **Cointegration**
+Cointegration involves selecting pairs of price series that, while individually non-stationary, exhibit a stationary linear combination. This allows for mean-reverting trading strategies.
+
+\[
+y(t) = \beta x(t) + \epsilon(t)
+\]
+
+- \( y(t), x(t) \): Prices of equities \( y \) and \( x \) at time \( t \).
+- \( \beta \): Hedge ratio.
+- \( \epsilon(t) \): Residuals of the linear relationship.
