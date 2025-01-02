@@ -22,7 +22,7 @@ $$
 - $\delta_1, \delta_2, \dots, \delta_{p-1}$: Coefficients for the lagged differences of the series.
 - $\epsilon_t$: The error term.
 
-**Null Hypothesis ($H_0$)**: The time series follows a random walk (non-stationary), which implies $\gamma = 0$.
+**Null Hypothesis ($H_0$)**: The time series follows a random walk (non-stationary), which implies $\gamma = 0$.\
 **Objective**: Reject the null hypothesis to conclude that the time series is stationary/mean-reverting and does not follow a random walk.
 
 ---
