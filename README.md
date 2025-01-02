@@ -5,8 +5,15 @@ Python code for implementing statistical tests that identify price series that p
 ---
 
 ## [Augmented Dickey-Fuller (ADF) Test](ADF.py)
-- **Purpose**: Uses the linear lag model of order $p$ to test for stationarity in a time series.
-- **Null Hypothesis**: The model follows random walk/GBM behavior because the gamma coefficient is $0$.
+- **Purpose**: Uses the linear lag model of order $p$ to test for stationarity in a time series, where a change in value of the time series is propertional to a constant, time, previous $p$-values, and an error term. 
+
+$$
+\Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \delta_1 \Delta y_{t-1} + \cdots + \delta_{p-1} \Delta y_{t-p+1} + \epsilon_t
+$$
+    - $\beta$: the coefficient of a temporal trend
+    - $\delta y_t = y(t) − y(t − 1)$
+    - $\alpha$ is a constant
+- **Null Hypothesis**: The model follows random walk/GBM behavior because $\gamma = 0$.
 - **Objective**: We aim to reject the null hypothesis to conclude that the time series is stationary.
 
 ---
