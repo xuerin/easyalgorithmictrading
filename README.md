@@ -23,10 +23,13 @@ tests for stationarity under the linear combination.
 **Random Walk**\
 A time series sequence of steps in which each step is determined randomly. Most equities behave this way.
 $$X_t = X_{t-1}+ {\epsilon}_t$$
+$$X_{t-1}$$ is the position at previous time step
+$${\epsilon}_t$$ is a random step at $t$ from a probability distribution.
 
 **Mean Reverting**\
 Follows the Ornstein-Uhlenbeck process. This is to say the change of the price series in the next continuous time
 period is proportional to (mean of price - current price + Gaussian noise).
+$$dx_t = \theta \(\mu - x_t\)dt + \delta dW_t$$
 
 **(Strongly) Stationary**\
 The joint probability distribution is invariant. Mean and standard deviation do not change. They diffuse from their 
