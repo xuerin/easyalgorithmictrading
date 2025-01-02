@@ -15,7 +15,7 @@ If $H = 0.5$, GMB\
 If $H < 0.5$, mean-reverting\
 If $H > 0.5$, trending\
 H near 0, highly mean reverting\
-H near 1, strongly trending\
+H near 1, strongly trending
 
 ## [Cointegrated Augmented Dickey-Fuller Test (CADF)](CADF.py)
 For a portfolio of equities. Gets the hedge ratio by performing a linear regression against the two time series and then
@@ -24,7 +24,7 @@ tests for stationarity under the linear combination.
 ## Definitions
 **Random Walk**\
 A time series sequence of steps in which each step is determined randomly. Most equities behave this way.
-$$X_t = X_{t-1}+ {\epsilon}_t$$\
+$$X_t = X_{t-1}+ \epsilon _t$$\
 $X_{t-1}$ is the position at previous time step\
 ${\epsilon}_t$ is a random step at $t$ from a probability distribution.
 
