@@ -1,6 +1,6 @@
 # Time Series Analysis
 
-Python code for implementing statistical tests that identify price series that possess trending, mean-reverting, or geometric Brownian motion (GBM)/random walk behavior. Interpretation of the tests are quotes from *Successful Algorithmic Trading* by Michael L. Halls-Moore. 
+Python code for implementing statistical tests that identify price series that possess trending, mean-reverting, or geometric Brownian motion (GBM)/random walk behavior. Interpretation of the tests are quotes from *Successful Algorithmic Trading* by Michael L. Halls-Moore, except for everything in the Cointegrated Augmented Dickey-Fuller Test. The two stocks he used were delisted and the two new stocks I picked look cointegrable but they actually fail the test. :(
 
 ---
 
